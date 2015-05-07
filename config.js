@@ -11,7 +11,7 @@ if (process.env.OPENSHIFT_MYSQL_DB_HOST != undefined) {
         // When running Ghost in the wild, use the production environment
         // Configure your URL and mail settings here
         production: {
-            url: 'http://'+process.env.OPENSHIFT_APP_DNS,
+            url: 'http://'+process.env.OPENSHIFT_APP_DNS_ALIAS,
             mail: {},
             database: {
                 client: 'mysql',
@@ -41,7 +41,7 @@ if (process.env.OPENSHIFT_MYSQL_DB_HOST != undefined) {
         // When running Ghost in the wild, use the production environment
         // Configure your URL and mail settings here
         production: {
-            url: 'http://'+process.env.OPENSHIFT_APP_DNS,
+            url: 'http://'+process.env.OPENSHIFT_APP_DNS_ALIAS,
             mail: {},
             database: {
                 client: 'pg',
@@ -70,7 +70,7 @@ if (process.env.OPENSHIFT_MYSQL_DB_HOST != undefined) {
         // ### Development **(default)**
         development: {
             // The url to use when providing links to the site, E.g. in RSS and email.
-            url: 'http://my-ghost-blog.com',
+						url: 'http://localhost:1337',
 
             // Example mail config
             // Visit http://support.ghost.org/mail for instructions
@@ -96,9 +96,9 @@ if (process.env.OPENSHIFT_MYSQL_DB_HOST != undefined) {
             },
             server: {
                 // Host to be passed to node's `net.Server#listen()`
-                host: '127.0.0.1',
+                host: '0.0.0.0',
                 // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
-                port: '2368'
+                port: '1337'
             },
             paths: {
                 contentPath: path.join(__dirname, '/content/')
