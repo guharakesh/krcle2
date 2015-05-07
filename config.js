@@ -12,7 +12,16 @@ if (process.env.OPENSHIFT_MYSQL_DB_HOST != undefined) {
         // Configure your URL and mail settings here
         production: {
             url: 'http://'+process.env.OPENSHIFT_APP_DNS_ALIAS,
-            mail: {},
+            mail: {
+							transport: 'SMTP',
+								options: {
+									service: 'Mailgun',
+									auth: {
+										user: 'postmaster@sandbox2391.mailgun.org',
+										pass: '6d3lytuzlbc7'
+									}
+								}
+						},
             database: {
                 client: 'mysql',
                 connection: {
@@ -42,7 +51,16 @@ if (process.env.OPENSHIFT_MYSQL_DB_HOST != undefined) {
         // Configure your URL and mail settings here
         production: {
             url: 'http://'+process.env.OPENSHIFT_APP_DNS_ALIAS,
-            mail: {},
+            mail: {
+							transport: 'SMTP',
+								options: {
+									service: 'Mailgun',
+									auth: {
+										user: 'postmaster@sandbox2391.mailgun.org',
+										pass: '6d3lytuzlbc7'
+									}
+								}
+						},
             database: {
                 client: 'pg',
                 connection: {
